@@ -6,7 +6,9 @@ K.config = {
 
 	GameStateStrings: {},
 
-	GameStateValues: {},
+	GameStateValues: {
+		PLAYER_SPEED: 100
+	},
 
 	AdMob: {
 		banner: {

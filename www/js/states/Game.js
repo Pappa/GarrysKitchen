@@ -12,6 +12,7 @@ K.GameState = {
     this.hasStarted = false;
     this.createAdBanner();
     this.createPlayer();
+    this.cursors = this.game.input.keyboard.createCursorKeys();
   },
   createAdBanner: function () {
     if(K.admobLoaded && K.config.AdMob.banner.active) {
@@ -22,8 +23,7 @@ K.GameState = {
     //create the player
     this.player = this.add.sprite(this.world.centerX, this.world.centerY, 'player');
     this.player.anchor.setTo(0.5);
-    this.player.animations.add('movingRight', [0, 1, 2, 3, 2, 1], 15, true);
-    this.player.animations.add('movingLeft', [1, 2, 3, 2, 1, 0], 15, true);
+    this.player.animations.add('moving', [0, 1, 2, 3, 2, 1], 15, true);
     this.game.physics.arcade.enable(this.player);
   },
   startGame: function () {
@@ -31,6 +31,22 @@ K.GameState = {
   },
   update: function() {
     if (this.hasStarted) {
+
+      this.player.body.velocity.x = 0;
+
+      if (this.cursors.right.isDown) {
+        this.player.body.velocity.x = this.gameConfig.PLAYER_SPEED;
+        this.player.scale.setTo(1, 1);
+        this.player.play('moving');
+      } else if (this.cursors.left.isDown) {
+        this.player.body.velocity.x = -this.gameConfig.PLAYER_SPEED;
+        this.player.scale.setTo(-1, 1);
+        this.player.play('moving');
+      } else {
+        this.player.animations.stop();
+        this.player.frame = 3;
+
+      }
 
     } else if (!this.hasStarted && this.game.input.activePointer.isDown) {
       this.startGame();
