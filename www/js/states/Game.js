@@ -9,25 +9,22 @@ K.GameState = {
     this.gameConfig = K.config.GameStateValues;
   },
   create: function() {
+    this.hasStarted = false;
     this.createAdBanner();
-    this.createBackground();
-    this.showStartOverlay();
+    this.createPlayer();
   },
   createAdBanner: function () {
     if(K.admobLoaded && K.config.AdMob.banner.active) {
       AdMob.showBanner(AdMob.AD_POSITION.TOP_CENTER);
     }
   },
-  createBackground: function () {
-    /*this.background = this.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'background');
-    this.background.tileScale.y = 2;
-    this.background.tileScale.x = 2;
-    this.background.autoScroll(-this.levelSpeed/6, 0);
-    this.game.world.sendToBack(this.background);*/
-  },
-  showStartOverlay: function () {
-    // display overlay here
-    this.hasStarted = false;
+  createPlayer: function () {
+    //create the player
+    this.player = this.add.sprite(this.world.centerX, this.world.centerY, 'player');
+    this.player.anchor.setTo(0.5);
+    this.player.animations.add('movingRight', [0, 1, 2, 3, 2, 1], 15, true);
+    this.player.animations.add('movingLeft', [1, 2, 3, 2, 1, 0], 15, true);
+    this.game.physics.arcade.enable(this.player);
   },
   startGame: function () {
     this.hasStarted = true;
@@ -55,7 +52,6 @@ K.GameState = {
 
 
   render: function() {
-    //this.game.debug.soundInfo(this.fartSounds[0], 10, 20);
     //this.game.debug.body(this.player);
     //this.game.debug.bodyInfo(this.player, 0, 30);
   }*/

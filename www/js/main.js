@@ -20,7 +20,7 @@ function onDeviceReady() {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-K.game = new Phaser.Game(320, 480, Phaser.AUTO);
+K.game = new Phaser.Game(480, 360, Phaser.AUTO, "gameContainer");
 
 K.game.state.add('Boot', K.BootState);
 K.game.state.add('Preload', K.PreloadState);

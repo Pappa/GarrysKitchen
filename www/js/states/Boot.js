@@ -6,10 +6,10 @@ K.BootState = {
     this.game.stage.backgroundColor = '#33C';
 
     //scaling options
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
-    this.scale.forceOrientation(false, true);
+    this.scale.forceOrientation(true, false);
 
     //physics system
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
