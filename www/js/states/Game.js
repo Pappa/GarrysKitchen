@@ -23,7 +23,8 @@ K.GameState = {
     //create the player
     this.player = this.add.sprite(this.world.centerX, this.world.centerY, 'player');
     this.player.anchor.setTo(0.5);
-    this.player.animations.add('moving', [0, 1, 2, 3, 2, 1], 15, true);
+    this.player.scale.setTo(0.5);
+    this.player.animations.add('moving', [1, 2], 15, true);
     this.game.physics.arcade.enable(this.player);
   },
   startGame: function () {
@@ -36,15 +37,15 @@ K.GameState = {
 
       if (this.cursors.right.isDown) {
         this.player.body.velocity.x = this.gameConfig.PLAYER_SPEED;
-        this.player.scale.setTo(1, 1);
+        this.player.scale.setTo(0.5, 0.5);
         this.player.play('moving');
       } else if (this.cursors.left.isDown) {
         this.player.body.velocity.x = -this.gameConfig.PLAYER_SPEED;
-        this.player.scale.setTo(-1, 1);
+        this.player.scale.setTo(-0.5, 0.5);
         this.player.play('moving');
       } else {
         this.player.animations.stop();
-        this.player.frame = 3;
+        this.player.frame = 0;
 
       }
 
