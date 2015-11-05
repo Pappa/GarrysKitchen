@@ -10,11 +10,12 @@ K.GameState = {
   },
   create: function() {
     this.hasStarted = false;
-    this.createAdBanner();
-    this.createPlayer();
+    //this.createAdBanner();
+    //this.createPlayer();
     this.cursors = this.game.input.keyboard.createCursorKeys();
+    this.orderBoard = new K.OrderBoard(this.game, 50, 263);
   },
-  createAdBanner: function () {
+  /*createAdBanner: function () {
     if(K.admobLoaded && K.config.AdMob.banner.active) {
       AdMob.showBanner(AdMob.AD_POSITION.TOP_CENTER);
     }
@@ -26,14 +27,14 @@ K.GameState = {
     this.player.scale.setTo(0.5);
     this.player.animations.add('moving', [1, 2], 15, true);
     this.game.physics.arcade.enable(this.player);
-  },
+  },*/
   startGame: function () {
     this.hasStarted = true;
   },
   update: function() {
     if (this.hasStarted) {
 
-      this.player.body.velocity.x = 0;
+      /*this.player.body.velocity.x = 0;
 
       if (this.cursors.right.isDown) {
         this.player.body.velocity.x = this.gameConfig.PLAYER_SPEED;
@@ -47,7 +48,7 @@ K.GameState = {
         this.player.animations.stop();
         this.player.frame = 0;
 
-      }
+      }*/
 
     } else if (!this.hasStarted && this.game.input.activePointer.isDown) {
       this.startGame();

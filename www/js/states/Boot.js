@@ -3,7 +3,7 @@ var K = K || {};
 //setting game configuration and loading the assets for the loading screen
 K.BootState = {
   init: function() {
-    this.game.stage.backgroundColor = '#33C';
+    this.game.stage.backgroundColor = '#000';
 
     //scaling options
     this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
