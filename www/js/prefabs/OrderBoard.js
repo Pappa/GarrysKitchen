@@ -1,7 +1,7 @@
 var K = K || {};
 
 K.OrderBoard = function(game, x, y) {
-  Phaser.Group.call(this, game);
+  Phaser.Sprite.call(this, game, x, y);
 
   this.game = game;
   this.x = x;
@@ -17,13 +17,13 @@ K.OrderBoard = function(game, x, y) {
   this.createOrderDisplay(x, y);
 };
 
-K.util.extend(K.OrderBoard, Phaser.Group);
+K.util.extend(K.OrderBoard, Phaser.Sprite);
 
 K.OrderBoard.prototype.createBackground = function (x, y) {
-  this.background = this.game.add.sprite(0, 0, 'grey');
+  this.background = this.game.make.sprite(0, 0, 'grey');
   this.background.width = 540;
   this.background.height = 60;
-  this.add(this.background);
+  this.addChild(this.background);
 };
 
 K.OrderBoard.prototype.createOrderDisplay = function (x, y) {
@@ -43,22 +43,17 @@ K.OrderBoard.prototype.createOrderDisplay = function (x, y) {
       this.displayBars[i].height = this.borderHeight;
       yPos += this.borderHeight;
     }
+    this.addChild(this.displayBars[i]);
   };
-  this.addMultiple(this.displayBars);
+  //this.addMultiple(this.displayBars);
   this.order1 = this.displayBars[1];
   this.order2 = this.displayBars[3];
   this.order3 = this.displayBars[5];
 };
 
 K.OrderBoard.prototype.setupOrderBar = function (orderBar) {
-  var colours = {
-      r: 0xa74236,
-      g: 0x64984f,
-      b: 0x5367d0
-    },
-    colourNames = ["r", "g", "b"];
-  item = colourNames[Math.floor(Math.random()*colourNames.length)];
-  orderBar.beginFill(colours[item]);
+  var colours = [0xa74236, 0x64984f, 0x5367d0];
+  orderBar.beginFill(colours.random());
   orderBar.drawRect(0, 0, this.barWidth, this.barHeight);
   orderBar.endFill();
 };

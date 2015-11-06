@@ -14,6 +14,7 @@ K.GameState = {
     //this.createPlayer();
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.orderBoard = new K.OrderBoard(this.game, 50, 263);
+    this.game.add.existing(this.orderBoard);
   },
   /*createAdBanner: function () {
     if(K.admobLoaded && K.config.AdMob.banner.active) {
