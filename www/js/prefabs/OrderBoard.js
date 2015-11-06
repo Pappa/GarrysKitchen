@@ -9,6 +9,7 @@ K.OrderBoard = function(game, x, y) {
 
   this.orderDisplayXOffset = 140;
   this.orderDisplayYOffset = 20;
+  this.bars = 3;
   this.barWidth = 230;
   this.barHeight = 10;
   this.borderHeight = 1;
@@ -28,27 +29,25 @@ K.OrderBoard.prototype.createBackground = function (x, y) {
 
 K.OrderBoard.prototype.createOrderDisplay = function (x, y) {
   var xPos = this.orderDisplayXOffset,
-    yPos = this.orderDisplayYOffset;
+    yPos = this.orderDisplayYOffset,
+    bar = {};
 
-  this.displayBars = [];
+  this.orders = [];
 
-  for (i = 0; i < 7; i++) {
+  for (i = 0; i <= (this.bars * 2); i++) {
     if (i % 2) {
-      this.displayBars[i] = this.game.add.graphics(xPos, yPos);
-      this.setupOrderBar(this.displayBars[i]);
+      bar = this.game.add.graphics(xPos, yPos);
+      this.setupOrderBar(bar);
+      this.orders.push(bar);
       yPos += this.barHeight;
     } else {
-      this.displayBars[i] = this.game.add.sprite(xPos, yPos, 'white');
-      this.displayBars[i].width = this.barWidth;
-      this.displayBars[i].height = this.borderHeight;
+      bar = this.game.add.sprite(xPos, yPos, 'white');
+      bar.width = this.barWidth;
+      bar.height = this.borderHeight;
       yPos += this.borderHeight;
     }
-    this.addChild(this.displayBars[i]);
+    this.addChild(bar);
   };
-  //this.addMultiple(this.displayBars);
-  this.order1 = this.displayBars[1];
-  this.order2 = this.displayBars[3];
-  this.order3 = this.displayBars[5];
 };
 
 K.OrderBoard.prototype.setupOrderBar = function (orderBar) {
