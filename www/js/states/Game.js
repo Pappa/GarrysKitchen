@@ -12,8 +12,9 @@ K.GameState = {
     this.hasStarted = false;
     //this.createAdBanner();
     //this.createPlayer();
+    this.createBackgrounds();
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.orderBoard = new K.OrderBoard(this.game, 50, 263);
+    this.orderBoard = new K.OrderBoard(this.game, 50, 262);
     this.game.add.existing(this.orderBoard);
   },
   /*createAdBanner: function () {
@@ -29,6 +30,18 @@ K.GameState = {
     this.player.animations.add('moving', [1, 2], 15, true);
     this.game.physics.arcade.enable(this.player);
   },*/
+  createBackgrounds: function () {
+    this.background = this.game.add.sprite(50, 0, 'darkBlue');
+    this.background.width = 540;
+    this.background.height = 260;
+
+    this.logo = this.game.add.sprite(145, 327, 'logo');
+
+
+    this.sceneOneBackground = this.game.add.existing(new K.SceneOne(this.game, 50, 0));
+    this.sceneTwoBackground = this.game.add.existing(new K.SceneTwo(this.game, 50, 0));
+
+  },
   startGame: function () {
     this.hasStarted = true;
   },
