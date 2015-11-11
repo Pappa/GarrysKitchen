@@ -7,6 +7,7 @@ K.SceneOne = function(game, x, y) {
 
   this.createBackground();
   this.createOven();
+  this.createConveyor();
   this.fire = this.game.make.sprite(240, 29, 'fire');
   this.fire.animations.add('moving', [0, 1, 2, 3, 4], 15, true);
   this.addChild(this.fire);
@@ -39,4 +40,11 @@ K.SceneOne.prototype.createOven = function () {
   ovenPart2.width = 115;
   ovenPart2.height = 20;
   this.addChild(ovenPart2);
+};
+
+K.SceneOne.prototype.createConveyor = function () {
+  var conveyorCorner = this.game.make.sprite(100, 50, 'conveyorCorner');
+  conveyorCorner.width = 68;
+  conveyorCorner.height = 33;
+  this.addChild(conveyorCorner);
 };
