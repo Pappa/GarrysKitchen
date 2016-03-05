@@ -2,7 +2,7 @@ var K = K || {};
 
 function onDeviceReady() {
     if (device && device.setOrientation) {
-        device.setOrientation("portrait");
+        device.setOrientation("landscape");
     }
 
     document.addEventListener("pause", function() {
@@ -20,6 +20,7 @@ function onDeviceReady() {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+// Atari resolution, roughly 160x192
 K.game = new Phaser.Game(640, 360, Phaser.AUTO, "gameContainer");
 
 K.game.state.add('Boot', K.BootState);

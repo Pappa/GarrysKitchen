@@ -8,22 +8,6 @@ K.config = {
 
 	GameStateValues: {
 		PLAYER_SPEED: 100
-	},
-
-	AdMob: {
-		banner: {
-			adId: 'ca-app-pub-4778325687900583/4410146557',
-			active: false,
-			autoShow: false,
-			isTesting: false,
-			overlap: false
-		},
-		interstitial: {
-			adId: 'ca-app-pub-4778325687900583/5886879754',
-			active: false,
-			autoShow: false,
-			isTesting: false
-		}
 	}
 
 };

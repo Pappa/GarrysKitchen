@@ -7,9 +7,9 @@ K.SceneOne = function(game, x, y) {
 
   this.createBackground();
   this.createOven();
-  this.createConveyor();
+  //this.createConveyor();
   this.fire = this.game.make.sprite(240, 29, 'fire');
-  this.fire.animations.add('moving', [0, 1, 2, 3, 4], 15, true);
+  this.fire.animations.add('moving', [0, 1, 2, 3, 4], 5, true);
   this.addChild(this.fire);
   this.fire.play('moving');
 };
