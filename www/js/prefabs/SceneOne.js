@@ -43,10 +43,10 @@ K.SceneOne.prototype.createOven = function () {
 };
 
 K.SceneOne.prototype.createConveyor = function () {
-  var conveyorCorner = this.game.make.sprite(100, 66, 'conveyorCorner'),
+  var conveyorCorner = this.game.make.sprite(100, 74, 'conveyorCorner'),
     conveyorDown = this.game.make.sprite(100, 88, 'darkGrey'),
-    conveyorTop = this.game.make.sprite(142, 66, 'darkGrey'),
-    conveyorBottom = this.game.make.sprite(142, 74, 'darkGrey');
+    conveyorTop = this.game.make.sprite(142, 74, 'darkGrey'),
+    conveyorBottom = this.game.make.sprite(142, 82, 'darkGrey');
   conveyorCorner.width = 42;
   conveyorCorner.height = 22;
   conveyorDown.width = 30;
