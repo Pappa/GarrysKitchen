@@ -26,7 +26,8 @@ K.GameState = {
     this.game.physics.arcade.enable(this.player);
   },*/
   createBackgrounds: function () {
-    this.background = this.game.add.sprite(50, 0, 'darkBlue');
+    this.background = this.game.add.sprite(50, 0, '1px');
+    this.background.tint = K.config.Colours.DARK_BLUE;
     this.background.width = 540;
     this.background.height = 260;
 

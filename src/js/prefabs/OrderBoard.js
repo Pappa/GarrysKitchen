@@ -21,7 +21,8 @@ K.OrderBoard = function(game, x, y) {
 K.util.extend(K.OrderBoard, Phaser.Sprite);
 
 K.OrderBoard.prototype.createBackground = function (x, y) {
-  this.background = this.game.make.sprite(0, 0, 'grey');
+  this.background = this.game.make.sprite(0, 0, '1px');
+  this.background.tint = K.config.Colours.GREY;
   this.background.width = 540;
   this.background.height = 60;
   this.addChild(this.background);
@@ -41,7 +42,7 @@ K.OrderBoard.prototype.createOrderDisplay = function (x, y) {
       this.orders.push(bar);
       yPos += this.barHeight;
     } else {
-      bar = this.game.add.sprite(xPos, yPos, 'white');
+      bar = this.game.add.sprite(xPos, yPos, '1px');
       bar.width = this.barWidth;
       bar.height = this.borderHeight;
       yPos += this.borderHeight;
