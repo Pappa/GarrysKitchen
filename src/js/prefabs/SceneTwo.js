@@ -6,10 +6,10 @@ K.SceneTwo = function(game, x, y) {
   this.game = game;
   this.alive = false;
 
-  this.createBackground();
+  this.createSceneSprites();
 };
 
 K.util.extend(K.SceneTwo, Phaser.Sprite);
 
-K.SceneTwo.prototype.createBackground = function () {
+K.SceneTwo.prototype.createSceneSprites = function () {
 };
